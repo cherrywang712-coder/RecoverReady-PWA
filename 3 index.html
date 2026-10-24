@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecoverReady Pro | Advanced Autonomous Rehabilitation Ecosystem</title>
+  <style>
+    /* ================= 100% PURE EMBEDDED STYLES (ZERO EXTERNAL DEPENDENCY) ================= */
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --primary-light: #ccfbf1;
+      --primary-subtle: #f0fdfa;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --indigo: #6366f1;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--slate-50);
+      color: var(--slate-800);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav Bar */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-200);
+      height: 68px; display: flex; align-items: center;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; color: var(--slate-900); }
+    .brand-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), #34d399);
+      display: flex; align-items: center; justify-content: center; color: white;
+    }
+    .brand span { color: var(--primary); }
+    .badge-pill {
+      font-size: 11px; background: var(--primary-light); color: var(--primary-dark);
+      padding: 3px 10px; border-radius: 20px; font-weight: 700; margin-left: 6px;
+    }
+    .nav-links { display: flex; gap: 22px; font-size: 13px; font-weight: 600; }
+    .nav-links a { text-decoration: none; color: var(--slate-600); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Hero Section */
+    .hero {
+      padding: 50px 0 36px;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center;
+    }
+    .hero-title {
+      font-size: 42px; font-weight: 800; line-height: 1.15; color: var(--slate-900); letter-spacing: -0.02em;
+    }
+    .hero-title span {
+      background: linear-gradient(90deg, var(--primary), #10b981);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-desc { font-size: 15px; color: var(--slate-600); margin: 16px 0; line-height: 1.6; }
+    .persona-card {
+      background: white; border: 1px solid var(--slate-200); border-radius: 16px;
+      padding: 14px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .persona-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+    }
+
+    /* Live Telemetry Card */
+    .hero-stats-card {
+      background: white; border: 1px solid var(--slate-200); border-radius: 22px; padding: 22px;
+      box-shadow: 0 16px 36px -10px rgba(13, 148, 136, 0.12);
+    }
+
+    /* Smartphone Simulator Section */
+    .sim-section {
+      padding: 60px 0; background: #f1f5f9; border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200);
+    }
+    .sim-grid {
+      display: grid; grid-template-columns: 375px 1fr; gap: 40px; align-items: start;
+    }
+    .phone-outer {
+      width: 365px; height: 740px; background: #0b1120; border-radius: 48px; padding: 13px;
+      box-shadow: 0 25px 60px -15px rgba(13, 148, 136, 0.35), 0 0 0 2px #334155;
+      position: relative; margin: 0 auto;
+    }
+    .phone-island {
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      width: 110px; height: 22px; background: black; border-radius: 20px; z-index: 40;
+    }
+    .phone-inner {
+      width: 100%; height: 100%; background: white; border-radius: 36px;
+      overflow: hidden; display: flex; flex-direction: column; position: relative;
+    }
+    .phone-top-bar {
+      padding: 24px 14px 10px; background: white; border-bottom: 1px solid var(--slate-200);
+      display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 700;
+    }
+    .phone-body {
+      flex: 1; overflow-y: auto; padding: 12px; background: #f8fafc;
+    }
+    .phone-nav {
+      height: 60px; background: white; border-top: 1px solid var(--slate-200);
+      display: grid; grid-template-columns: repeat(6, 1fr); align-items: center;
+    }
+    .phone-nav-btn {
+      background: none; border: none; display: flex; flex-direction: column;
+      align-items: center; gap: 2px; font-size: 9px; font-weight: 700; color: var(--slate-500);
+      cursor: pointer; transition: all 0.2s; padding: 4px 0;
+    }
+    .phone-nav-btn.active { color: var(--primary); transform: translateY(-1px); }
+    .phone-nav-btn svg { width: 16px; height: 16px; stroke-width: 2.2; }
+
+    .screen-view { display: none; }
+    .screen-view.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Task Engine */
+    .task-item {
+      background: white; border: 1px solid var(--slate-200); border-radius: 12px;
+      padding: 10px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .task-item:hover { border-color: var(--primary); }
+    .task-item input { margin-top: 2px; accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer; }
+    .task-text { font-size: 11px; font-weight: 600; color: var(--slate-800); }
+    .task-sub { font-size: 9px; color: var(--slate-500); }
+    .completed .task-text { text-decoration: line-through; color: var(--slate-400); }
+
+    /* Chat System */
+    .chat-box {
+      height: 250px; background: white; border-radius: 12px; border: 1px solid var(--slate-200);
+      padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;
+    }
+    .chat-msg {
+      max-width: 86%; padding: 8px 11px; border-radius: 12px; font-size: 11px; line-height: 1.4;
+    }
+    .msg-bot { background: var(--primary-light); color: var(--primary-dark); align-self: flex-start; border-bottom-left-radius: 2px; }
+    .msg-user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+    .typing-indicator {
+      display: flex; gap: 4px; padding: 7px 11px; background: var(--slate-200); border-radius: 12px; width: fit-content;
+    }
+    .dot {
+      width: 4px; height: 4px; background: var(--slate-600); border-radius: 50%;
+      animation: bounce 1.2s infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+
+    /* Breathing Pacer Circle */
+    .pacer-container {
+      background: white; border: 1px solid var(--slate-200); border-radius: 14px;
+      padding: 16px; text-align: center;
+    }
+    .breath-circle {
+      width: 75px; height: 75px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      margin: 12px auto; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 10px; font-weight: 700;
+      animation: pulseBreath 8s infinite ease-in-out;
+    }
+    @keyframes pulseBreath {
+      0%, 100% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); }
+      50% { transform: scale(1.2); box-shadow: 0 0 20px 8px rgba(13, 148, 136, 0.25); }
+    }
+
+    /* Sliders & Assessment */
+    .assess-section { padding: 60px 0; background: white; border-bottom: 1px solid var(--slate-200); }
+    .assess-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+    .slider-group { margin-bottom: 18px; }
+    .slider-header { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+    .range-input { width: 100%; height: 6px; accent-color: var(--primary); cursor: pointer; }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed; bottom: 24px; right: 24px; background: var(--slate-900); color: white;
+      padding: 12px 18px; border-radius: 12px; font-size: 12px; font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: none; z-index: 100; align-items: center; gap: 8px;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; z-index: 99; padding: 16px;
+    }
+    .modal-card {
+      background: white; border-radius: 20px; max-width: 520px; width: 100%; padding: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); position: relative;
+    }
+
+    /* Duty Matrix Toggles */
+    .duty-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 10px; background: white; border: 1px solid var(--slate-200); border-radius: 10px;
+      margin-bottom: 6px; font-size: 11px;
+    }
+    .duty-toggle {
+      padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer; border: none;
+    }
+    .duty-celeste { background: var(--primary-light); color: var(--primary-dark); }
+    .duty-jason { background: var(--slate-200); color: var(--slate-700); }
+  </style>
+</head>
+<body>
+
+  <!-- ================= TOP NAVIGATION ================= -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        Recover<span>Ready</span>
+        <span class="badge-pill">Interactive Prototype v3.0</span>
+      </div>
+      <div class="nav-links">
+        <a href="#simulator">Phone App Demo</a>
+        <a href="#assessment">Health Index (RRI)</a>
+        <a href="#telemetry">Gait Telemetry</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="container hero">
+    <div>
+      <div style="font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 8px;">
+        Evidence-Based Rehabilitation & Campus Mobility
+      </div>
+      <h1 class="hero-title">Restoring Autonomy, <br><span>One Step at a Time.</span></h1>
+      <p class="hero-desc">
+        Engineered specifically for injured university students. RecoverReady bridges clinical physiotherapy, mental self-efficacy, and obstacle-free campus mobility into an empowering ecosystem.
+      </p>
+      <div class="persona-card">
+        <div class="persona-avatar">C</div>
+        <div>
+          <div style="font-weight: 800; font-size: 14px; color: var(--slate-900);">Interviewee Persona: Celeste (24, NTU Psychology)</div>
+          <div style="font-size: 12px; color: var(--slate-500);">Post-cast ankle recovery • Anxious about Orientation Leader (CGL) Reintegration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Card -->
+    <div class="hero-stats-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <span style="font-size: 13px; font-weight: 700; color: var(--slate-800);">Celeste's Live Biometric Telemetry</span>
+        <span style="font-size: 10px; font-weight: 700; background: #ecfdf5; color: var(--emerald); padding: 4px 8px; border-radius: 8px;">● Sensor Sync Active</span>
+      </div>
+      
+      <div style="margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+          <span>Weight-Bearing Independence</span>
+          <span style="color: var(--primary);" id="top-mobility-text">82% (+14% this week)</span>
+        </div>
+        <div style="height: 8px; background: var(--slate-100); border-radius: 8px; overflow: hidden;">
+          <div id="top-mobility-bar" style="width: 82%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--emerald)); transition: width 0.4s;"></div>
+        </div>
+      </div>
+
+      <div style="background: var(--primary-subtle); border: 1px solid var(--primary-light); border-radius: 12px; padding: 12px; font-size: 12px;">
+        <div style="font-weight: 700; color: var(--primary-dark);">Step-Free Transit Active: Tanjong Hall ➔ HSS</div>
+        <div style="color: var(--slate-600); font-size: 11px; margin-top: 2px;">Slope gradient &lt; 3° • Campus Loop Red shuttle in <strong id="shuttle-countdown" style="color: var(--primary);">03:45</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SMARTPHONE SIMULATOR SECTION ================= -->
+  <section class="sim-section" id="simulator">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 36px;">
+        <span style="font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase;">Direct Tactile Prototype</span>
+        <h2 style="font-size: 30px; font-weight: 800; color: var(--slate-900);">RecoverReady Mobile Prototype</h2>
+        <p style="font-size: 13px; color: var(--slate-600);">
+          Click the 6 bottom icons inside the phone frame to experience all functional systems.
+        </p>
+      </div>
+
+      <div class="sim-grid">
+        <!-- Phone Outer Frame -->
+        <div class="phone-outer">
+          <div class="phone-island"></div>
+          <div class="phone-inner">
+            <div class="phone-top-bar">
+              <span id="screen-title" style="color: var(--primary);">Autonomy Planner</span>
+              <span style="color: var(--emerald); font-size: 10px;">● IMU 98%</span>
+            </div>
+
+            <!-- Scrollable Phone Screen -->
+            <div class="phone-body">
+              
+              <!-- TAB 1: INDEPENDENCE PLANNER (WITH CUSTOM TASK ADDITION) -->
+              <div id="tab-planner" class="screen-view active">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 11px; font-weight: 700;">Daily Micro-Mastery Goals</span>
+                  <span id="task-counter" style="font-size: 10px; font-weight: 700; background: var(--primary-light); color: var(--primary-dark); padding: 2px 6px; border-radius: 6px;">1 / 3 Done</span>
+                </div>
+
+                <div id="taskList">
+                  <div class="task-item completed" onclick="toggleTask(this)">
+                    <input type="checkbox" checked onclick="event.stopPropagation(); toggleTask(this.parentNode);">
+                    <div>
+                      <div class="task-text">Physio Dorsiflexion Stretches</div>
+                      <div class="task-sub">15 mins completed at 08:30 AM</div>
+                    </div>
+                  </div>
+
+                  <div class="task-item" onclick="toggleTask(this)">
+                    <input type="checkbox" onclick="event.stopPropagation(); toggleTask(this.parentNode);">
+                    <div>
+                      <div class="task-text">150m Independent Hall Walk</div>
+                      <div class="task-sub">Mastery goal: corridor walk without wobbling</div>
+                    </div>
+                  </div>
+
+                  <div class="task-item" onclick="toggleTask(this)">
+                    <input type="checkbox" onclick="event.stopPropagation(); toggleTask(this.parentNode);">
+                    <div>
+                      <div class="task-text">CGL Leadership Sync Call</div>
+                      <div class="task-sub">Delegate heavy camp props to co-GL</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Custom Task Input Form inside Phone -->
+                <div style="margin-top: 10px; display: flex; gap: 4px;">
+                  <input type="text" id="newTaskInput" placeholder="Add custom recovery goal..." style="flex: 1; padding: 6px 10px; font-size: 11px; border-radius: 8px; border: 1px solid var(--slate-200); outline: none;">
+                  <button onclick="addNewTask()" style="padding: 6px 10px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">+ Add</button>
+                </div>
+
+                <div style="margin-top: 12px; background: linear-gradient(135deg, var(--primary-subtle), #ecfdf5); border: 1px solid var(--primary-light); padding: 10px; border-radius: 12px; font-size: 11px;">
+                  <div style="font-weight: 700; color: var(--primary-dark);">🏆 Bandura's Self-Efficacy Milestone</div>
+                  <div style="color: var(--slate-600); font-size: 10px; margin-top: 2px;">Streak: 6 Consecutive Days of Recovery!</div>
+                </div>
+              </div>
+
+              <!-- TAB 2: NTU INTERACTIVE CAMPUS MAP & ROUTE NAV -->
+              <div id="tab-campus" class="screen-view">
+                <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">NTU Interactive Step-Free Map</div>
+                
+                <!-- Dynamic Canvas Map inside Phone -->
+                <canvas id="campusMapCanvas" width="315" height="130" style="background: white; border: 1px solid var(--slate-200); border-radius: 12px; display: block; margin-bottom: 8px;"></canvas>
+
+                <select id="routeSelect" onchange="updateCampusRoute(this.value)" style="width: 100%; padding: 7px; font-size: 11px; border-radius: 8px; border: 1px solid var(--slate-200); margin-bottom: 8px; font-weight: 600;">
+                  <option value="tanjong-hss">Tanjong Hall ➔ HSS (Flat & Sheltered)</option>
+                  <option value="hall16-hive">Hall 16 ➔ The Hive (Slope Bypass)</option>
+                  <option value="north-wkw">North Spine ➔ WKWSCI (Level 2 Lifts)</option>
+                </select>
+
+                <div style="background: white; border: 1px solid var(--slate-200); border-radius: 12px; padding: 10px; font-size: 11px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+                    <span style="color: var(--slate-500);">Incline Angle:</span>
+                    <strong style="color: var(--emerald);" id="route-incline">&lt; 3° (Step-Free)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+                    <span style="color: var(--slate-500);">Shuttle Ramp:</span>
+                    <strong id="route-shuttle">Campus Loop Red</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="color: var(--slate-500);">Est. Duration:</span>
+                    <strong id="route-time">14 mins</strong>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 6px; margin-top: 8px;">
+                  <button onclick="triggerToast('Step-Free Navigation active: Guiding to lift lobby 3')" style="flex: 1; padding: 8px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 11px; font-weight: 700; cursor: pointer;">
+                    Start Nav
+                  </button>
+                  <button onclick="simulateObstacle()" style="padding: 8px 10px; background: #fff1f2; color: var(--rose); border: 1px solid #fecdd3; border-radius: 10px; font-size: 11px; font-weight: 700; cursor: pointer;">
+                    ⚠️ Report Broken Lift
+                  </button>
+                </div>
+              </div>
+
+              <!-- TAB 3: SMART GAIT & SENSORS -->
+              <div id="tab-gait" class="screen-view">
+                <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">Live Gait Waveform (IMU 50Hz)</div>
+                <canvas id="phoneGaitCanvas" width="315" height="100" style="background: #0f172a; border-radius: 12px; display: block; margin-bottom: 8px;"></canvas>
+
+                <div style="background: white; border: 1px solid var(--slate-200); border-radius: 12px; padding: 10px; margin-bottom: 8px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 6px;">
+                    <span style="font-weight: 700;">Stride Symmetry:</span>
+                    <strong style="color: var(--primary);" id="gait-sym-text">88% (Healthy)</strong>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; text-align: center; font-size: 10px;">
+                    <div style="background: var(--slate-50); padding: 5px; border-radius: 6px;">Left: <strong>51%</strong></div>
+                    <div style="background: var(--slate-50); padding: 5px; border-radius: 6px;">Right (Injured): <strong style="color: var(--primary);" id="right-sym-text">49%</strong></div>
+                  </div>
+                </div>
+
+                <div style="background: white; border: 1px solid var(--slate-200); border-radius: 12px; padding: 10px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                    <span style="font-weight: 700;">Subjective Pain Score:</span>
+                    <strong id="pain-display" style="color: var(--amber);">2 / 10</strong>
+                  </div>
+                  <input type="range" min="0" max="10" value="2" class="range-input" oninput="adjustPain(this.value)">
+                  <div style="font-size: 9px; color: var(--slate-500); margin-top: 4px;">Auto-calibrates daily walking quotas.</div>
+                </div>
+              </div>
+
+              <!-- TAB 4: RECOVERBOT AI COPING CHAT (FULL INPUT SUPPORT) -->
+              <div id="tab-chat" class="screen-view">
+                <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">RecoverBot (CBT Support Companion)</div>
+                <div class="chat-box" id="chatBox">
+                  <div class="chat-msg msg-bot">
+                    Hi Celeste! I noticed you walked 150m this morning. How are you feeling emotionally about Orientation?
+                  </div>
+                </div>
+
+                <!-- Interactive Chips -->
+                <div style="display: flex; gap: 4px; margin: 6px 0; overflow-x: auto; padding-bottom: 2px;">
+                  <button onclick="sendQuickReply('Ankle feels stiff after walking')" style="font-size: 9px; padding: 3px 6px; background: white; border: 1px solid var(--slate-200); border-radius: 6px; cursor: pointer; white-space: nowrap;">"Ankle is stiff"</button>
+                  <button onclick="sendQuickReply('Anxious that my group sees me as a burden')" style="font-size: 9px; padding: 3px 6px; background: white; border: 1px solid var(--slate-200); border-radius: 6px; cursor: pointer; white-space: nowrap;">"Feel like a burden"</button>
+                  <button onclick="sendQuickReply('How do I coordinate with Jason?')" style="font-size: 9px; padding: 3px 6px; background: white; border: 1px solid var(--slate-200); border-radius: 6px; cursor: pointer; white-space: nowrap;">"Coordinate with Jason"</button>
+                </div>
+
+                <!-- Text Input -->
+                <div style="display: flex; gap: 4px;">
+                  <input type="text" id="chatInput" placeholder="Type thoughts or questions..." onkeydown="if(event.key==='Enter') sendCustomMsg();" style="flex: 1; padding: 6px 8px; font-size: 11px; border-radius: 8px; border: 1px solid var(--slate-200); outline: none;">
+                  <button onclick="sendCustomMsg()" style="padding: 6px 10px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer;">Send</button>
+                </div>
+              </div>
+
+              <!-- TAB 5: CGL DUTY DELEGATION MATRIX & LEADERSHIP -->
+              <div id="tab-social" class="screen-view">
+                <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">Orientation CGL Duty Allocation</div>
+                
+                <div class="duty-row">
+                  <div>
+                    <strong>Seated Debrief & Icebreakers</strong>
+                    <div style="color: var(--slate-500); font-size: 9px;">High cognitive autonomy, zero physical load</div>
+                  </div>
+                  <button class="duty-toggle duty-celeste" onclick="toggleDuty(this)">Celeste</button>
+                </div>
+
+                <div class="duty-row">
+                  <div>
+                    <strong>Logistics & Heavy Station Props</strong>
+                    <div style="color: var(--slate-500); font-size: 9px;">Carrying gear across South Spine</div>
+                  </div>
+                  <button class="duty-toggle duty-jason" onclick="toggleDuty(this)">Jason</button>
+                </div>
+
+                <div class="duty-row">
+                  <div>
+                    <strong>Cohort Safety & First Aid Contact</strong>
+                    <div style="color: var(--slate-500); font-size: 9px;">Emergency triage coordination</div>
+                  </div>
+                  <button class="duty-toggle duty-celeste" onclick="toggleDuty(this)">Celeste</button>
+                </div>
+
+                <div style="background: white; border: 1px solid var(--slate-200); border-radius: 12px; padding: 10px; margin-top: 8px; font-size: 11px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span>Celeste's Physical Burden:</span>
+                    <strong style="color: var(--emerald);" id="burden-score">Low (20%)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>Leadership Autonomy Retained:</span>
+                    <strong style="color: var(--primary);" id="autonomy-score">High (85%)</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAB 6: MINDFULNESS PACER & SAFETY TRIAGE -->
+              <div id="tab-safety" class="screen-view">
+                <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">Pre-Walk Mindfulness Breathing</div>
+                
+                <div class="pacer-container">
+                  <div style="font-size: 10px; color: var(--slate-500);">4-4-4 Box Breathing for Pain Modulation</div>
+                  <div class="breath-circle" id="breathCircle">Breathe</div>
+                  <div style="font-size: 10px; font-weight: 700; color: var(--primary);" id="breathStatus">Inhale Gently...</div>
+                </div>
+
+                <div style="background: #fff1f2; border: 1px solid #fecdd3; border-radius: 12px; padding: 8px; font-size: 10px; color: #9f1239; margin-top: 8px;">
+                  <strong>⚠️ Clinical Boundary:</strong> If calf swelling or sharp pain occurs, stop drills and dial UHC immediately.
+                </div>
+                <button onclick="triggerToast('Connecting to NTU University Health Centre (+65 6790 4466)...')" style="width: 100%; margin-top: 8px; padding: 8px; background: var(--rose); color: white; border: none; border-radius: 10px; font-size: 11px; font-weight: 700; cursor: pointer;">
+                  Call NTU UHC Clinic
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Bottom Tab Navigation -->
+            <div class="phone-nav">
+              <button class="phone-nav-btn active" onclick="switchPhoneTab('planner', this, 'Autonomy Planner')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                <span>Plan</span>
+              </button>
+              <button class="phone-nav-btn" onclick="switchPhoneTab('campus', this, 'NTU Route Planner')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+                <span>Transit</span>
+              </button>
+              <button class="phone-nav-btn" onclick="switchPhoneTab('gait', this, 'Gait & Sensor Track')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span>Sensors</span>
+              </button>
+              <button class="phone-nav-btn" onclick="switchPhoneTab('chat', this, 'RecoverBot AI')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <span>AI Coping</span>
+              </button>
+              <button class="phone-nav-btn" onclick="switchPhoneTab('social', this, 'CGL Duty Matrix')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                <span>CGL Duty</span>
+              </button>
+              <button class="phone-nav-btn" onclick="switchPhoneTab('safety', this, 'Pacer & Safety')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Pacer</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Theoretical Framing & Presentation Evidence -->
+        <div>
+          <div style="font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase;">Theoretical Alignment (25 Marks)</div>
+          <h3 style="font-size: 26px; font-weight: 800; color: var(--slate-900); margin: 6px 0 16px;">Biopsychosocial Integration</h3>
+          
+          <div style="background: white; border: 1px solid var(--slate-200); border-radius: 16px; padding: 18px; margin-bottom: 14px;">
+            <div style="font-size: 14px; font-weight: 800; color: var(--slate-900);">Bandura's Self-Efficacy & Mastery Goals</div>
+            <p style="font-size: 12px; color: var(--slate-600); margin-top: 4px;">
+              Graded daily challenges (e.g. 150m corridor walk) convert overwhelming recovery into tangible micro-mastery experiences, replacing perceived helplessness with internal control.
+            </p>
+          </div>
+
+          <div style="background: white; border: 1px solid var(--slate-200); border-radius: 16px; padding: 18px; margin-bottom: 14px;">
+            <div style="font-size: 14px; font-weight: 800; color: var(--slate-900);">Self-Determination Theory & Duty Matrix</div>
+            <p style="font-size: 12px; color: var(--slate-600); margin-top: 4px;">
+              Addresses <strong>Autonomy</strong> and <strong>Relatedness</strong> by allowing Celeste to lead orientation debriefs while delegating heavy equipment, avoiding the stigma of feeling like a burden.
+            </p>
+          </div>
+
+          <div style="background: white; border: 1px solid var(--slate-200); border-radius: 16px; padding: 18px;">
+            <div style="font-size: 14px; font-weight: 800; color: var(--slate-900);">High Environmental Specificity for NTU</div>
+            <p style="font-size: 12px; color: var(--slate-600); margin-top: 4px;">
+              Directly resolves the physical reality of NTU's steep topography (Hall 16 slope bypass, North Spine elevator linkage) with live alternative routing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ASSESSMENT SECTION (RRI CALCULATOR & CLINICAL REPORT MODAL) ================= -->
+  <section class="assess-section" id="assessment">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 36px;">
+        <span style="font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase;">Quantifiable Evaluation</span>
+        <h2 style="font-size: 30px; font-weight: 800; color: var(--slate-900);">Recovery Readiness Index (RRI)</h2>
+        <p style="font-size: 13px; color: var(--slate-600);">
+          Drag the sliders below to see the native Canvas Radar redraw and calculate clinical clearance.
+        </p>
+      </div>
+
+      <div class="assess-grid">
+        <!-- Sliders -->
+        <div style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 20px; padding: 22px;">
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>Biological Mobility (Pain Tolerated)</span>
+              <span id="label-m" style="color: var(--primary);">75%</span>
+            </div>
+            <input type="range" min="20" max="100" value="75" class="range-input" id="range-m" oninput="updateRadar()">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>Psychological Self-Efficacy</span>
+              <span id="label-e" style="color: var(--primary);">65%</span>
+            </div>
+            <input type="range" min="20" max="100" value="65" class="range-input" id="range-e" oninput="updateRadar()">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>Campus Step-Free Mobility</span>
+              <span id="label-c" style="color: var(--primary);">80%</span>
+            </div>
+            <input type="range" min="20" max="100" value="80" class="range-input" id="range-c" oninput="updateRadar()">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>CGL Social Leadership Readiness</span>
+              <span id="label-s" style="color: var(--primary);">60%</span>
+            </div>
+            <input type="range" min="20" max="100" value="60" class="range-input" id="range-s" oninput="updateRadar()">
+          </div>
+        </div>
+
+        <!-- Radar Canvas Box -->
+        <div style="background: white; border: 1px solid var(--slate-200); border-radius: 20px; padding: 22px; text-align: center;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 13px; font-weight: 700;">Biopsychosocial Equilibrium</span>
+            <span id="rri-score" style="font-size: 24px; font-weight: 800; color: var(--primary);">70 / 100</span>
+          </div>
+
+          <canvas id="radarCanvas" width="310" height="230" style="margin: 0 auto; display: block;"></canvas>
+
+          <div style="margin-top: 12px; background: var(--primary-subtle); border: 1px solid var(--primary-light); padding: 12px; border-radius: 12px; font-size: 12px; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <strong id="status-title" style="color: var(--primary-dark);">Stage 2: Supervised Campus Traversal</strong>
+              <p id="status-desc" style="color: var(--slate-600); font-size: 11px; margin-top: 2px;">
+                Approved for flat corridor walks and low-load orientation leadership.
+              </p>
+            </div>
+            <button onclick="openReportModal()" style="padding: 6px 12px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap;">
+              View Clinical PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLINICAL AUDIT REPORT MODAL ================= -->
+  <div class="modal-overlay" id="reportModal" onclick="closeReportModal()">
+    <div class="modal-card" onclick="event.stopPropagation();">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--slate-200); padding-bottom: 12px; margin-bottom: 14px;">
+        <h3 style="font-size: 16px; font-weight: 800; color: var(--slate-900);">Clinical Rehabilitation Clearance Summary</h3>
+        <button onclick="closeReportModal()" style="background: none; border: none; font-size: 18px; cursor: pointer; color: var(--slate-400);">&times;</button>
+      </div>
+
+      <div style="font-size: 12px; line-height: 1.6; color: var(--slate-700); space-y-3;">
+        <div style="background: var(--slate-50); padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+          <p><strong>Patient Name:</strong> Celeste (24, Psychology, NTU)</p>
+          <p><strong>Diagnosis:</strong> Post-Cast Right Ankle Inversion Trauma (Week 3)</p>
+          <p><strong>Biopsychosocial RRI:</strong> <span id="modal-score" style="color: var(--primary); font-weight: 800;">70 / 100</span></p>
+        </div>
+
+        <p><strong>Physiotherapy Recommendations:</strong></p>
+        <ul style="padding-left: 20px; font-size: 11px; color: var(--slate-600); margin-bottom: 10px;">
+          <li>Weight-bearing walking cleared up to 200m continuously on level corridors.</li>
+          <li>Strictly bypass outdoor staircases near Hall 16 using covered elevator corridors.</li>
+          <li>Orientation leadership cleared under Duty Matrix delegation protocols.</li>
+        </ul>
+
+        <div style="border-top: 1px dashed var(--slate-200); padding-top: 10px; font-size: 10px; color: var(--slate-400);">
+          Verified by: NTU University Health Centre (UHC) Allied Health Assessment Protocol
+        </div>
+      </div>
+
+      <button onclick="triggerToast('Clinical report generated for presentation!'); closeReportModal();" style="width: 100%; margin-top: 16px; padding: 10px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer;">
+        Save Clearance Record
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-msg">Task Completed!</span>
+  </div>
+
+  <!-- ================= 100% PURE EMBEDDED JAVASCRIPT ================= -->
+  <script>
+    // 1. Phone Navigation
+    function switchPhoneTab(tabId, btn, title) {
+      document.querySelectorAll('.screen-view').forEach(view => view.classList.remove('active'));
+      document.querySelectorAll('.phone-nav-btn').forEach(b => b.classList.remove('active'));
+      
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+      btn.classList.add('active');
+      document.getElementById('screen-title').innerText = title;
+
+      if (tabId === 'campus') drawCampusMap();
+    }
+
+    // 2. Task Engine
+    function toggleTask(element) {
+      element.classList.toggle('completed');
+      const checkbox = element.querySelector('input[type="checkbox"]');
+      if (checkbox) checkbox.checked = element.classList.contains('completed');
+      updateTaskCount();
+    }
+
+    function updateTaskCount() {
+      const total = document.querySelectorAll('.task-item').length;
+      const checked = document.querySelectorAll('.task-item.completed').length;
+      document.getElementById('task-counter').innerText = `${checked} / ${total} Done`;
+
+      const pct = Math.round((checked / Math.max(1, total)) * 100);
+      document.getElementById('top-mobility-bar').style.width = pct + '%';
+      document.getElementById('top-mobility-text').innerText = pct + '% (Daily Goals)';
+
+      if (checked === total) {
+        triggerToast("🎉 All goals achieved! High mastery experience boost!");
+      }
+    }
+
+    function addNewTask() {
+      const input = document.getElementById('newTaskInput');
+      const val = input.value.trim();
+      if (!val) return;
+
+      const item = document.createElement('div');
+      item.className = 'task-item';
+      item.onclick = function() { toggleTask(this); };
+      item.innerHTML = `
+        <input type="checkbox" onclick="event.stopPropagation(); toggleTask(this.parentNode);">
+        <div>
+          <div class="task-text">${val}</div>
+          <div class="task-sub">User-defined self-efficacy milestone</div>
+        </div>
+      `;
+      document.getElementById('taskList').appendChild(item);
+      input.value = '';
+      updateTaskCount();
+      triggerToast("Custom milestone added!");
+    }
+
+    // 3. NTU Campus Canvas Map Engine
+    function drawCampusMap(brokenLift = false) {
+      const cvs = document.getElementById('campusMapCanvas');
+      if (!cvs) return;
+      const ctx = cvs.getContext('2d');
+      const w = cvs.width, h = cvs.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Campus background grid
+      ctx.fillStyle = '#f8fafc';
+      ctx.fillRect(0, 0, w, h);
+
+      // Nodes
+      const nodes = [
+        { id: 'Tanjong', x: 40, y: 35, label: 'Tanjong Hall' },
+        { id: 'North', x: 130, y: 35, label: 'North Spine' },
+        { id: 'HSS', x: 265, y: 40, label: 'HSS / SSS' },
+        { id: 'Hive', x: 200, y: 105, label: 'The Hive' },
+        { id: 'Hall16', x: 60, y: 105, label: 'Hall 16' }
+      ];
+
+      // Draw connection roads
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#e2e8f0';
+
+      ctx.beginPath();
+      ctx.moveTo(40, 35); ctx.lineTo(130, 35);
+      ctx.lineTo(265, 40); ctx.lineTo(200, 105);
+      ctx.lineTo(60, 105); ctx.lineTo(40, 35);
+      ctx.stroke();
+
+      // Draw Active Step-Free Path (Green glow)
+      ctx.lineWidth = 3.5;
+      ctx.strokeStyle = brokenLift ? '#f59e0b' : '#0d9488';
+      ctx.beginPath();
+      ctx.moveTo(40, 35);
+      if (brokenLift) {
+        // detour
+        ctx.lineTo(60, 105); ctx.lineTo(200, 105); ctx.lineTo(265, 40);
+      } else {
+        ctx.lineTo(130, 35); ctx.lineTo(265, 40);
+      }
+      ctx.stroke();
+
+      // Draw Node points
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 6, 0, Math.PI * 2);
+        ctx.fillStyle = (n.id === 'Tanjong' || n.id === 'HSS') ? '#0d9488' : '#64748b';
+        ctx.fill();
+
+        ctx.font = 'bold 9px sans-serif';
+        ctx.fillStyle = '#1e293b';
+        ctx.textAlign = 'center';
+        ctx.fillText(n.label, n.x, n.y + 16);
+      });
+
+      // Label path state
+      ctx.font = 'bold 9px sans-serif';
+      ctx.fillStyle = brokenLift ? '#dc2626' : '#0d9488';
+      ctx.fillText(brokenLift ? '⚠️ DETOUR: Lift 3 Under Maintenance' : '✓ Verified Step-Free Route Active', w / 2, h - 8);
+    }
+
+    function simulateObstacle() {
+      drawCampusMap(true);
+      document.getElementById('route-incline').innerText = "Ramp Detour (+4 mins)";
+      document.getElementById('route-incline').style.color = "#f59e0b";
+      triggerToast("Broken lift reported! Calculated safe detour.");
+    }
+
+    function updateCampusRoute(val) {
+      drawCampusMap(false);
+      const inc = document.getElementById('route-incline');
+      const s = document.getElementById('route-shuttle');
+      const t = document.getElementById('route-time');
+
+      if (val === 'tanjong-hss') {
+        inc.innerText = "< 3° (Step-Free)";
+        inc.style.color = "var(--emerald)";
+        s.innerText = "Campus Loop Red";
+        t.innerText = "14 mins";
+      } else if (val === 'hall16-hive') {
+        inc.innerText = "Zero Incline (Lifts)";
+        inc.style.color = "var(--emerald)";
+        s.innerText = "Campus Loop Blue";
+        t.innerText = "18 mins";
+      } else {
+        inc.innerText = "Covered Walkway Only";
+        inc.style.color = "var(--emerald)";
+        s.innerText = "Walking Preferred";
+        t.innerText = "8 mins";
+      }
+      triggerToast("Route updated with slope filters!");
+    }
+
+    // 4. Live Gait Canvas Waveform
+    let gaitTimer = null;
+    function initPhoneGaitWave() {
+      const cvs = document.getElementById('phoneGaitCanvas');
+      if (!cvs) return;
+      const ctx = cvs.getContext('2d');
+      const w = cvs.width, h = cvs.height;
+      let offset = 0;
+
+      function render() {
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(0, 0, w, h);
+
+        // Grid lines
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 1;
+        for (let y = 20; y < h; y += 25) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+        }
+
+        // Draw Left Foot (Teal Wave)
+        ctx.strokeStyle = '#14b8a6';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let x = 0; x < w; x++) {
+          const y = h / 2 + Math.sin((x + offset) * 0.08) * 22;
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // Draw Right Foot (Injured Ankle Wave - Dotted Amber)
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 1.8;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        for (let x = 0; x < w; x++) {
+          const y = h / 2 + Math.sin((x + offset) * 0.08 + 1.2) * 19;
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        offset += 2;
+        gaitTimer = requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    function adjustPain(val) {
+      document.getElementById('pain-display').innerText = val + ' / 10';
+      if (val >= 6) {
+        document.getElementById('gait-sym-text').innerText = "72% (Asymmetry Flag)";
+        document.getElementById('gait-sym-text').style.color = "var(--rose)";
+        triggerToast("⚠️ High pain detected. Micro-rest interval advised.");
+      } else {
+        document.getElementById('gait-sym-text').innerText = "88% (Healthy)";
+        document.getElementById('gait-sym-text').style.color = "var(--primary)";
+      }
+    }
+
+    // 5. RecoverBot Dynamic AI Chat
+    function sendCustomMsg() {
+      const input = document.getElementById('chatInput');
+      const txt = input.value.trim();
+      if (!txt) return;
+      input.value = '';
+      sendChatDialogue(txt);
+    }
+
+    function sendQuickReply(txt) {
+      sendChatDialogue(txt);
+    }
+
+    function sendChatDialogue(userText) {
+      const box = document.getElementById('chatBox');
+      
+      const u = document.createElement('div');
+      u.className = 'chat-msg msg-user';
+      u.innerText = userText;
+      box.appendChild(u);
+      box.scrollTop = box.scrollHeight;
+
+      // Typing animation
+      const typing = document.createElement('div');
+      typing.className = 'typing-indicator';
+      typing.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+      box.appendChild(typing);
+      box.scrollTop = box.scrollHeight;
+
+      setTimeout(() => {
+        box.removeChild(typing);
+        const bot = document.createElement('div');
+        bot.className = 'chat-msg msg-bot';
+
+        const q = userText.toLowerCase();
+        if (q.includes('stiff') || q.includes('pain') || q.includes('hurt')) {
+          bot.innerText = "Stiffness is natural in post-cast tendon recovery. Let's pause walking and do 5 gentle seated circles to restore synovial fluid.";
+        } else if (q.includes('burden') || q.includes('anxious') || q.includes('worry')) {
+          bot.innerText = "Remember Bandura's Self-Efficacy: your leadership value as a CGL lies in mentoring and empathy, not physical load. Delegating tasks is smart teamwork, not a burden!";
+        } else if (q.includes('jason') || q.includes('duty') || q.includes('delegate')) {
+          bot.innerText = "In your Duty Matrix tab, logistics and station props are assigned to Jason, leaving you fully in charge of icebreakers and safety. Clear boundaries protect recovery!";
+        } else {
+          bot.innerText = "That's an important insight! Every step you take builds resilient neural pathways. Pace yourself and keep checking your gait balance.";
+        }
+
+        box.appendChild(bot);
+        box.scrollTop = box.scrollHeight;
+      }, 700);
+    }
+
+    // 6. CGL Duty Matrix Toggles
+    function toggleDuty(btn) {
+      if (btn.classList.contains('duty-celeste')) {
+        btn.classList.remove('duty-celeste');
+        btn.classList.add('duty-jason');
+        btn.innerText = 'Jason';
+      } else {
+        btn.classList.remove('duty-jason');
+        btn.classList.add('duty-celeste');
+        btn.innerText = 'Celeste';
+      }
+
+      // Recalculate burdens
+      const celesteCount = document.querySelectorAll('.duty-toggle.duty-celeste').length;
+      if (celesteCount >= 3) {
+        document.getElementById('burden-score').innerText = "High (65%)";
+        document.getElementById('burden-score').style.color = "var(--rose)";
+      } else {
+        document.getElementById('burden-score').innerText = "Low (20%)";
+        document.getElementById('burden-score').style.color = "var(--emerald)";
+      }
+      triggerToast("Role reallocated! Autonomy preserved.");
+    }
+
+    // 7. Radar Chart Native Canvas
+    function drawRadar(m, e, c, s) {
+      const cvs = document.getElementById('radarCanvas');
+      if (!cvs) return;
+      const ctx = cvs.getContext('2d');
+      const w = cvs.width, h = cvs.height;
+      const cx = w / 2, cy = h / 2, r = 75;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const labels = ['Mobility', 'Self-Efficacy', 'Campus Transit', 'CGL Leadership'];
+      const angles = [ -Math.PI / 2, 0, Math.PI / 2, Math.PI ];
+
+      // Draw web
+      ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1;
+      for (let lvl = 1; lvl <= 4; lvl++) {
+        ctx.beginPath();
+        const curR = (r / 4) * lvl;
+        for (let i = 0; i < 4; i++) {
+          const x = cx + curR * Math.cos(angles[i]);
+          const y = cy + curR * Math.sin(angles[i]);
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.closePath(); ctx.stroke();
+      }
+
+      // Draw Axes & Labels
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + r * Math.cos(angles[i]), cy + r * Math.sin(angles[i]));
+        ctx.stroke();
+
+        ctx.font = 'bold 9px sans-serif';
+        ctx.fillStyle = '#64748b';
+        ctx.textAlign = 'center';
+        const lx = cx + (r + 16) * Math.cos(angles[i]);
+        const ly = cy + (r + 16) * Math.sin(angles[i]) + 3;
+        ctx.fillText(labels[i], lx, ly);
+      }
+
+      // Draw User Polygon
+      const vals = [m / 100, e / 100, c / 100, s / 100];
+      ctx.beginPath();
+      for (let i = 0; i < 4; i++) {
+        const x = cx + r * vals[i] * Math.cos(angles[i]);
+        const y = cy + r * vals[i] * Math.sin(angles[i]);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(13, 148, 136, 0.25)';
+      ctx.fill();
+      ctx.strokeStyle = '#0d9488'; ctx.lineWidth = 2.2;
+      ctx.stroke();
+    }
+
+    function updateRadar() {
+      const m = parseInt(document.getElementById('range-m').value);
+      const e = parseInt(document.getElementById('range-e').value);
+      const c = parseInt(document.getElementById('range-c').value);
+      const s = parseInt(document.getElementById('range-s').value);
+
+      document.getElementById('label-m').innerText = m + '%';
+      document.getElementById('label-e').innerText = e + '%';
+      document.getElementById('label-c').innerText = c + '%';
+      document.getElementById('label-s').innerText = s + '%';
+
+      drawRadar(m, e, c, s);
+
+      const avg = Math.round((m + e + c + s) / 4);
+      document.getElementById('rri-score').innerText = avg + ' / 100';
+      document.getElementById('modal-score').innerText = avg + ' / 100';
+
+      const t = document.getElementById('status-title');
+      const d = document.getElementById('status-desc');
+      if (avg < 50) {
+        t.innerText = "Stage 1: Rest & Seated Physio";
+        d.innerText = "Mobility threshold requires rest. Strictly avoid stairs across NTU.";
+      } else if (avg < 75) {
+        t.innerText = "Stage 2: Supervised Campus Traversal";
+        d.innerText = "Cleared for flat corridor walks and low-load orientation leadership.";
+      } else {
+        t.innerText = "Stage 3: Full Autonomous Reintegration";
+        d.innerText = "High self-efficacy confirmed! Cleared for full orientation coordination.";
+      }
+    }
+
+    // 8. Shuttle Timer Simulation
+    let shuttleSecs = 225;
+    setInterval(() => {
+      shuttleSecs--;
+      if (shuttleSecs <= 0) shuttleSecs = 360;
+      const m = String(Math.floor(shuttleSecs / 60)).padStart(2, '0');
+      const s = String(shuttleSecs % 60).padStart(2, '0');
+      const el = document.getElementById('shuttle-countdown');
+      if (el) el.innerText = `${m}:${s}`;
+    }, 1000);
+
+    // 9. Toast System
+    function triggerToast(text) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = text;
+      t.style.display = 'flex';
+      setTimeout(() => { t.style.display = 'none'; }, 2200);
+    }
+
+    // 10. Modal controls
+    function openReportModal() { document.getElementById('reportModal').style.display = 'flex'; }
+    function closeReportModal() { document.getElementById('reportModal').style.display = 'none'; }
+
+    // Init
+    window.onload = function() {
+      updateRadar();
+      drawCampusMap();
+      initPhoneGaitWave();
+    };
+  </script>
+</body>
+</html>
