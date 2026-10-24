@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="RecoverReady is an interactive rehabilitation planning prototype for student confidence, campus access and support planning.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="RecoverReady">
+<link rel="manifest" href="/Recover-Ready/manifest.json">
+<link rel="apple-touch-icon" href="/Recover-Ready/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/Recover-Ready/icons/icon-192.png">
+<meta name="theme-color" content="#0d9488">
+<title>RecoverReady Pro | Interactive Rehabilitation Prototype</title>
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--mint:#ccfbf1;--mint-bg:#f0fdfa;--green:#059669;--amber:#d97706;--rose:#e11d48;--ink:#0f172a;--text:#334155;--muted:#64748b;--line:#e2e8f0;--paper:#fff;--bg:#f8fafc;--blue:#2563eb;--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:3px}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #5eead4}a{color:inherit}.container{width:min(1160px,calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:850;font-size:19px;text-decoration:none}.brand-icon{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:grid;place-items:center;font-size:23px}.brand em{font-style:normal;color:var(--primary)}.badge{font-size:10px;background:var(--mint);color:var(--primary-dark);padding:4px 8px;border-radius:20px;white-space:nowrap}.nav-links{display:flex;gap:20px;font-size:13px;font-weight:700}.nav-links a{text-decoration:none;color:var(--muted)}.nav-links a:hover{color:var(--primary)}
+.hero{padding:52px 0 44px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:var(--primary-dark)}h1{font-size:clamp(34px,4.5vw,55px);line-height:1.07;letter-spacing:-.04em;color:var(--ink);margin:10px 0 16px}.gradient{color:var(--primary)}.lead{font-size:16px;max-width:660px;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.btn{border:1px solid var(--line);background:white;color:var(--text);padding:10px 14px;border-radius:12px;font-size:13px;font-weight:800;min-height:42px}.btn.primary{background:var(--primary);border-color:var(--primary);color:white}.btn.primary:hover{background:var(--primary-dark)}.btn:hover{border-color:var(--primary)}.persona,.panel,.feature,.stat{background:white;border:1px solid var(--line);border-radius:var(--radius)}.persona{display:flex;gap:13px;align-items:center;padding:14px;max-width:560px}.avatar{width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--primary);color:#fff;font-weight:900}.small{font-size:12px;color:var(--muted)}.panel{padding:22px;box-shadow:0 14px 35px #0f766e0b}.panel h2,.section-title{margin:0;color:var(--ink)}.panel-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.status{font-size:11px;background:#ecfdf5;color:#047857;border-radius:8px;padding:5px 8px;font-weight:800}.metric{margin:16px 0}.metric-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:750;margin-bottom:6px}.bar{height:9px;background:#f1f5f9;border-radius:20px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--primary),#34d399);border-radius:20px;transition:width .25s}.callout{padding:12px;border:1px solid var(--mint);background:var(--mint-bg);border-radius:13px;font-size:12px}.disclaimer{font-size:11px;color:var(--muted);margin-top:12px}
+section.block{padding:54px 0;border-top:1px solid var(--line)}.block.alt{background:#f1f5f9}.section-head{text-align:center;max-width:700px;margin:0 auto 30px}.section-head h2{font-size:clamp(25px,3vw,34px);letter-spacing:-.025em;color:var(--ink);margin:5px 0 8px}.section-head p{color:var(--muted);font-size:14px;margin:0}
+.demo-grid{display:grid;grid-template-columns:minmax(280px,380px) minmax(0,1fr);gap:34px;align-items:start}.phone{max-width:360px;width:100%;margin:auto;background:#111827;border-radius:42px;padding:11px;box-shadow:0 22px 55px #0f766e20}.phone-screen{background:white;border-radius:32px;overflow:hidden;min-height:620px;display:flex;flex-direction:column}.phone-head{padding:23px 16px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:850;color:var(--primary-dark)}.phone-content{padding:14px;background:#fafafa;flex:1}.phone-tabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);background:white}.tab{border:0;background:white;color:var(--muted);font-size:10px;font-weight:800;padding:10px 2px 9px;min-height:56px}.tab .icon{display:block;font-size:17px;margin-bottom:1px}.tab.active{color:var(--primary);background:var(--mint-bg)}.view{display:none}.view.active{display:block;animation:appear .18s ease}@keyframes appear{from{opacity:.4;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}.view h3{font-size:13px;color:var(--ink);margin:0 0 10px}.row-between{display:flex;justify-content:space-between;align-items:center;gap:10px}.task{display:flex;align-items:flex-start;gap:10px;padding:12px;background:white;border:1px solid var(--line);border-radius:13px;margin:9px 0}.task input{width:18px;height:18px;accent-color:var(--primary);margin-top:2px;flex:none}.task-main{min-width:0;flex:1}.task-title{font-size:12px;font-weight:800;color:var(--ink)}.task-sub{font-size:10px;color:var(--muted)}.task.done .task-title{text-decoration:line-through;color:#94a3b8}.task.done{background:#f8fafc}.tag{font-size:10px;font-weight:800;color:var(--primary-dark);background:var(--mint);padding:3px 7px;border-radius:7px;white-space:nowrap}.field{width:100%;border:1px solid var(--line);background:white;border-radius:10px;padding:10px;font-size:12px;color:var(--text);min-height:40px}.field-label{display:block;font-size:11px;font-weight:800;margin:12px 0 5px;color:var(--text)}.range{width:100%;accent-color:var(--primary);min-height:28px}.route-card{background:white;border:1px solid var(--line);border-radius:13px;padding:13px;font-size:11px}.route-stat{display:flex;justify-content:space-between;gap:8px;margin:8px 0}.route-stat span{color:var(--muted)}.route-stat strong{text-align:right}.chat-log{height:235px;overflow:auto;display:flex;flex-direction:column;gap:8px;background:white;border:1px solid var(--line);border-radius:12px;padding:10px}.bubble{font-size:11px;max-width:88%;padding:9px 11px;border-radius:13px;overflow-wrap:anywhere}.bubble.bot{background:var(--mint);color:var(--primary-dark);align-self:flex-start;border-bottom-left-radius:3px}.bubble.user{background:var(--primary);color:white;align-self:flex-end;border-bottom-right-radius:3px}.chat-form{display:flex;gap:6px;margin-top:8px}.chat-form .field{min-width:0}.chat-form button{flex:none}.quick-replies{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.quick-replies button{font-size:10px;padding:6px 8px;border-radius:9px;background:white;border:1px solid var(--line)}.quick-replies button:hover{border-color:var(--primary)}.feature-list{display:grid;gap:12px}.feature{display:flex;gap:14px;padding:17px;transition:border-color .2s}.feature:hover{border-color:#99f6e4}.feature-icon{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:12px;background:var(--mint-bg);font-size:20px}.feature h3{margin:0 0 4px;font-size:14px;color:var(--ink)}.feature p{font-size:12px;color:var(--muted);margin:0}.feature .small{margin-top:6px}
+.assess-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}.sliders{padding:22px;background:#f8fafc;border:1px solid var(--line);border-radius:18px}.slider-row{margin:0 0 21px}.slider-row:last-child{margin-bottom:0}.slider-label{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:800;margin-bottom:5px}.slider-label output{color:var(--primary-dark)}.radar-panel{padding:20px;background:white;border:1px solid var(--line);border-radius:18px}.score-line{display:flex;justify-content:space-between;gap:10px;align-items:center}.score{font-size:27px;font-weight:900;color:var(--primary)}canvas{width:100%;max-width:420px;height:auto;display:block;margin:5px auto}.stage{background:var(--mint-bg);border:1px solid var(--mint);border-radius:12px;padding:12px;font-size:12px}.stage strong{color:var(--primary-dark)}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.stat{padding:16px}.stat strong{display:block;font-size:22px;color:var(--ink)}.stat span{font-size:11px;color:var(--muted)}.notice{border-left:4px solid var(--amber);background:#fffbeb;padding:12px 14px;border-radius:0 10px 10px 0;font-size:12px;color:#92400e;margin-top:16px}footer{padding:25px 0;color:var(--muted);font-size:11px}.toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:min(360px,calc(100% - 36px));background:var(--ink);color:white;padding:12px 16px;border-radius:12px;font-size:12px;box-shadow:0 8px 25px #0002;display:none}.toast.show{display:block}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:800px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding-top:34px}.demo-grid{grid-template-columns:1fr}.feature-list{max-width:700px;margin:auto}.assess-grid{grid-template-columns:1fr}.phone{max-width:350px}.summary-grid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:480px){.container{width:calc(100% - 24px)}.hero{gap:22px}.persona{align-items:flex-start}.badge{display:none}.block{padding:40px 0!important}.phone{padding:8px;border-radius:34px}.phone-screen{border-radius:27px;min-height:590px}.summary-grid{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;align-items:center}.stat strong{font-size:18px}.panel{padding:17px}}
+@media(max-width:380px){
+  .container{width:calc(100% - 20px)}
+  .brand{font-size:17px;gap:7px}.brand-icon{width:34px;height:34px}
+  .hero{padding-top:28px}.lead{font-size:15px}
+  .phone{max-width:100%;padding:6px;border-radius:30px}
+  .phone-screen{border-radius:25px;min-height:560px}
+  .phone-content{padding:10px}.phone-head{padding:19px 12px 10px}
+  .tab{font-size:9px}.tab .icon{font-size:16px}
+  .sliders,.radar-panel{padding:15px}
+}
+html{overflow-x:hidden;scroll-padding-top:76px}
+body{padding-bottom:env(safe-area-inset-bottom)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="brand" href="#top" aria-label="RecoverReady home"><span class="brand-icon">✚</span><span>Recover<em>Ready</em></span><span class="badge">Interactive Prototype</span></a>
+<nav class="nav-links" aria-label="Main navigation"><a href="#simulator">App demo</a><a href="#assessment">Readiness index</a><a href="#design">Design logic</a></nav>
+</div></header>
+<main id="top">
+<section class="container hero">
+<div><div class="eyebrow">Rehabilitation · Confidence · Campus access</div>
+<h1>Restore autonomy,<br><span class="gradient">one confident step at a time.</span></h1>
+<p class="lead">RecoverReady is a concept for injured university students that brings recovery planning, confidence-building, campus accessibility and human support into one interactive experience.</p>
+<div class="actions"><a class="btn primary" href="#simulator" style="text-decoration:none">Try the prototype ↓</a><button class="btn" id="resetAll" type="button">Reset demo</button></div>
+<div class="persona"><div class="avatar">C</div><div><strong style="color:var(--ink)">Celeste · Student persona</strong><div class="small">Recovering from an ankle fracture; wants to return to campus and orientation duties with confidence.</div></div></div>
+</div>
+<aside class="panel"><div class="panel-top"><h2 style="font-size:15px">Recovery snapshot</h2><span class="status">DEMO DATA</span></div>
+<div class="metric"><div class="metric-head"><span>Daily goals completed</span><strong id="heroTasks">1 / 3</strong></div><div class="bar"><span id="heroTaskBar" style="width:33%"></span></div></div>
+<div class="metric"><div class="metric-head"><span>Recovery Readiness Index</span><strong id="heroScore">70 / 100</strong></div><div class="bar"><span id="heroScoreBar" style="width:70%"></span></div></div>
+<div class="callout"><strong>Prototype principle</strong><br>Support progress without treating an app score as medical clearance.</div>
+<p class="disclaimer">All scores, routes and timings in this prototype are illustrative—not live sensor readings, verified campus directions or clinical advice.</p></aside>
+</section>
+
+<section class="block alt" id="simulator"><div class="container">
+<div class="section-head"><div class="eyebrow">Explore the interaction</div><h2>RecoverReady mobile experience</h2><p>Switch between the five tabs, tick tasks, explore route options, enter a message, and adjust the readiness sliders below.</p></div>
+<div class="demo-grid">
+<div class="phone" aria-label="Interactive mobile app prototype"><div class="phone-screen">
+<div class="phone-head"><span id="phoneTitle">Daily planner</span><span>● Demo</span></div>
+<div class="phone-content">
+<div class="view active" id="view-planner">
+<div class="row-between"><h3>Daily micro-goals</h3><span class="tag" id="taskCounter">1 / 3 done</span></div>
+<div id="taskList">
+<label class="task done"><input type="checkbox" data-task="0" checked><span class="task-main"><span class="task-title">Physiotherapy plan</span><br><span class="task-sub">Follow the plan provided by your clinician</span></span></label>
+<label class="task"><input type="checkbox" data-task="1"><span class="task-main"><span class="task-title">Short, comfortable walk</span><br><span class="task-sub">Only if consistent with clinical guidance</span></span></label>
+<label class="task"><input type="checkbox" data-task="2"><span class="task-main"><span class="task-title">Coordinate orientation duties</span><br><span class="task-sub">Ask a teammate to handle heavy items</span></span></label>
+</div>
+<form id="addTaskForm" style="display:flex;gap:6px;margin-top:10px"><label class="sr-only" for="newTask">New task</label><input class="field" id="newTask" maxlength="70" placeholder="Add a personal goal…" required><button class="btn primary" type="submit" aria-label="Add task">+</button></form>
+<p class="small" style="margin:10px 0 0">Small wins can help build confidence. Rest when needed and follow professional guidance.</p>
+</div>
+<div class="view" id="view-campus">
+<h3>Step-free route explorer</h3>
+<label class="field-label" for="routeSelect">Choose a sample route</label><select class="field" id="routeSelect"><option value="0">Hall → teaching building (sample)</option><option value="1">Hall → central learning hub (sample)</option><option value="2">North campus → lecture building (sample)</option></select>
+<div class="route-card" style="margin-top:10px"><strong id="routeName" style="color:var(--primary-dark)">Hall → teaching building</strong><div class="route-stat"><span>Accessibility focus</span><strong id="routeAccess">Avoid stairs</strong></div><div class="route-stat"><span>Transport idea</span><strong id="routeTransport">Shuttle / lift</strong></div><div class="route-stat"><span>Illustrative time</span><strong id="routeTime">14 min</strong></div><p class="small" id="routeNote">Confirm lift access and route conditions before travelling.</p></div>
+<button class="btn primary" type="button" id="routeStart" style="width:100%;margin-top:10px">Preview route steps</button><ol id="routeSteps" class="small" hidden style="padding-left:20px"><li>Check lift availability.</li><li>Choose a step-free indoor connection.</li><li>Allow extra time and ask campus staff if needed.</li></ol>
+</div>
+<div class="view" id="view-sensors">
+<h3>Movement & comfort check-in</h3>
+<div class="route-card"><div class="row-between"><strong>Self-reported comfort</strong><span class="tag" id="comfortLabel">Comfortable</span></div><label class="field-label" for="painRange">Pain rating (0 = none, 10 = worst)</label><input class="range" id="painRange" type="range" min="0" max="10" value="2"><div class="row-between small"><span>0 · None</span><strong id="painValue">2 / 10</strong><span>10 · Worst</span></div><label class="field-label" for="movement">Movement confidence</label><select class="field" id="movement"><option>Not sure yet</option><option selected>Somewhat confident</option><option>Confident today</option><option>Need extra support</option></select></div>
+<div class="callout" style="margin-top:10px"><strong>Safety first</strong><br>This is a self-check, not a sensor measurement or diagnosis. Stop if activity worsens symptoms and contact a qualified clinician when concerned.</div>
+</div>
+<div class="view" id="view-chat">
+<h3>RecoverBot · Supportive check-in</h3><p class="small" style="margin:0 0 8px">A scripted prototype—not a real AI or therapist.</p>
+<div class="chat-log" id="chatLog" role="log" aria-live="polite"><div class="bubble bot">Hi Celeste. What would be most helpful right now: planning, confidence, or asking someone for support?</div></div>
+<div class="quick-replies"><button type="button" data-reply="I feel anxious about returning to orientation.">Feeling anxious</button><button type="button" data-reply="I am not sure how much activity is appropriate.">Activity question</button><button type="button" data-reply="I could use help asking my team for support.">Ask for support</button></div>
+<form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Write a message</label><input class="field" id="chatInput" maxlength="240" placeholder="Type a message…" required><button class="btn primary" type="submit">Send</button></form>
+</div>
+<div class="view" id="view-safety">
+<h3>Safety & support</h3><div class="callout" style="background:#fff1f2;border-color:#fecdd3;color:#9f1239"><strong>Not a diagnostic tool</strong><br>New or severe pain, numbness, significant swelling, calf tenderness or other worrying symptoms need prompt professional assessment. For an emergency, use local emergency services.</div>
+<label class="field-label" for="supportChoice">What support do you need?</label><select class="field" id="supportChoice"><option value="clinician">Speak to a healthcare professional</option><option value="campus">Ask campus staff about accessibility</option><option value="team">Ask my team to adjust duties</option></select>
+<button class="btn primary" id="supportPlan" type="button" style="width:100%;margin-top:10px">Show suggested next step</button><div id="supportResult" class="route-card" style="margin-top:10px" hidden aria-live="polite"></div>
+</div>
+</div>
+<div class="phone-tabs" role="tablist" aria-label="Prototype screens">
+<button class="tab active" role="tab" aria-selected="true" data-tab="planner"><span class="icon">☑</span>Plan</button>
+<button class="tab" role="tab" aria-selected="false" data-tab="campus"><span class="icon">⌖</span>Routes</button>
+<button class="tab" role="tab" aria-selected="false" data-tab="sensors"><span class="icon">〰</span>Check-in</button>
+<button class="tab" role="tab" aria-selected="false" data-tab="chat"><span class="icon">☏</span>Support</button>
+<button class="tab" role="tab" aria-selected="false" data-tab="safety"><span class="icon">♡</span>Safety</button>
+</div></div></div>
+
+<div class="feature-list" id="design">
+<article class="feature"><div class="feature-icon">🎯</div><div><h3>Micro-goals & self-efficacy</h3><p>Break a difficult return-to-campus process into manageable, user-chosen steps. The user can add goals and mark them complete.</p><div class="small">Design link: graded mastery experiences</div></div></article>
+<article class="feature"><div class="feature-icon">♿</div><div><h3>Accessibility-aware travel planning</h3><p>Show accessibility considerations and a sample step-free journey, while clearly identifying routes as illustrative until verified.</p><div class="small">Design link: person–environment fit</div></div></article>
+<article class="feature"><div class="feature-icon">💬</div><div><h3>Supportive communication</h3><p>Quick replies and free text let a presenter demonstrate empathetic prompts and practical support planning without claiming to provide therapy.</p><div class="small">Design link: social support and coping</div></div></article>
+<article class="feature"><div class="feature-icon">🛡️</div><div><h3>Safety boundaries</h3><p>Separate a wellbeing check-in from diagnosis or clearance. The prototype directs users to qualified professionals for clinical concerns.</p><div class="small">Design link: human oversight</div></div></article>
+</div>
+</div></div></section>
+
+<section class="block" id="assessment"><div class="container">
+<div class="section-head"><div class="eyebrow">Interactive assessment concept</div><h2>Recovery Readiness Index (RRI)</h2><p>Adjust the four illustrative dimensions to see the score, radar chart and suggested planning stage update together.</p></div>
+<div class="assess-grid">
+<div class="sliders">
+<div class="slider-row"><div class="slider-label"><label for="rangeM">Physical comfort & mobility</label><output id="labelM" for="rangeM">75%</output></div><input class="range" id="rangeM" type="range" min="0" max="100" value="75"></div>
+<div class="slider-row"><div class="slider-label"><label for="rangeE">Confidence & self-efficacy</label><output id="labelE" for="rangeE">65%</output></div><input class="range" id="rangeE" type="range" min="0" max="100" value="65"></div>
+<div class="slider-row"><div class="slider-label"><label for="rangeC">Campus accessibility confidence</label><output id="labelC" for="rangeC">80%</output></div><input class="range" id="rangeC" type="range" min="0" max="100" value="80"></div>
+<div class="slider-row"><div class="slider-label"><label for="rangeS">Social / team support</label><output id="labelS" for="rangeS">60%</output></div><input class="range" id="rangeS" type="range" min="0" max="100" value="60"></div>
+<button class="btn" id="resetRri" type="button">Reset assessment values</button>
+</div>
+<div class="radar-panel"><div class="score-line"><strong style="color:var(--ink);font-size:13px">Readiness dimensions</strong><div class="score" id="rriScore" aria-live="polite">70 / 100</div></div>
+<canvas id="radar" width="420" height="310" role="img" aria-label="Radar chart showing four illustrative readiness dimensions"></canvas>
+<div class="stage"><strong id="stageTitle">Stage 2 · Supported planning</strong><p id="stageDesc" style="margin:3px 0 0;color:var(--muted)">Plan low-demand activities with appropriate support and follow clinical guidance.</p></div>
+<p class="disclaimer">RRI is a demonstration metric created for this prototype. It is not clinically validated and must not be used to decide whether someone is safe to walk, exercise or return to duties.</p></div>
+</div>
+<div class="summary-grid"><div class="stat"><strong id="summaryTasks">1 / 3</strong><span>Tasks completed</span></div><div class="stat"><strong id="summaryScore">70</strong><span>Illustrative RRI score</span></div><div class="stat"><strong id="summarySupport">Available</strong><span>Support planning</span></div></div>
+<div class="notice"><strong>Before real-world use:</strong> validate routes with campus facilities, review clinical language with qualified professionals, test accessibility with injured students, and protect any personal or health data.</div>
+</div></section>
+</main>
+<footer><div class="container">RecoverReady Pro · Concept prototype for demonstration · No live sensor, map, AI, medical or campus-system integration.</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  let toastTimer;
+  function toast(message) {
+    const el = $("toast"); el.textContent = message; el.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 2600);
+  }
+
+  // Tabs: buttons are keyboard-accessible and update the screen title.
+  const tabTitles = {planner:"Daily planner",campus:"Route explorer",sensors:"Movement check-in",chat:"Support check-in",safety:"Safety & support"};
+  document.querySelectorAll(".tab").forEach(button => button.addEventListener("click", () => {
+    const name = button.dataset.tab;
+    document.querySelectorAll(".tab").forEach(b => { const active = b === button; b.classList.toggle("active", active); b.setAttribute("aria-selected", String(active)); });
+    document.querySelectorAll(".view").forEach(view => view.classList.toggle("active", view.id === "view-" + name));
+    $("phoneTitle").textContent = tabTitles[name];
+  }));
+
+  // Task list supports check/uncheck, adding tasks, and updates all progress displays.
+  const tasks = [
+    {title:"Physiotherapy plan",sub:"Follow the plan provided by your clinician",done:true},
+    {title:"Short, comfortable walk",sub:"Only if consistent with clinical guidance",done:false},
+    {title:"Coordinate orientation duties",sub:"Ask a teammate to handle heavy items",done:false}
+  ];
+  function renderTasks() {
+    const list = $("taskList"); list.replaceChildren();
+    tasks.forEach((task,index) => {
+      const label = document.createElement("label"); label.className = "task" + (task.done ? " done" : "");
+      const check = document.createElement("input"); check.type = "checkbox"; check.checked = task.done; check.setAttribute("aria-label","Mark " + task.title + " complete");
+      check.addEventListener("change", () => { task.done = check.checked; renderTasks(); if(task.done) toast("Goal completed — well done."); });
+      const main = document.createElement("span"); main.className = "task-main";
+      const title = document.createElement("span"); title.className = "task-title"; title.textContent = task.title;
+      const sub = document.createElement("span"); sub.className = "task-sub"; sub.textContent = task.sub;
+      main.append(title, document.createElement("br"), sub); label.append(check,main); list.append(label);
+    });
+    const done = tasks.filter(t => t.done).length, total = tasks.length;
+    $("taskCounter").textContent = `${done} / ${total} done`;
+    $("heroTasks").textContent = `${done} / ${total}`;
+    $("heroTaskBar").style.width = (total ? done / total * 100 : 0) + "%";
+    $("summaryTasks").textContent = `${done} / ${total}`;
+  }
+  $("addTaskForm").addEventListener("submit", e => {
+    e.preventDefault(); const input = $("newTask"), title = input.value.trim();
+    if (!title) { input.focus(); return; }
+    if (tasks.length >= 12) { toast("For this demo, keep the list to 12 goals."); return; }
+    tasks.push({title,sub:"Personal goal · adjust to your needs",done:false}); input.value = ""; renderTasks(); toast("Personal goal added.");
+  });
+
+  // Illustrative routes; not real-time or verified directions.
+  const routes = [
+    {name:"Hall → teaching building",access:"Avoid stairs",transport:"Shuttle / lift",time:"14 min",steps:["Check lift availability before leaving.","Use a verified step-free indoor connection.","Allow extra time and ask campus staff if needed."]},
+    {name:"Hall → central learning hub",access:"Check slope & ramps",transport:"Accessible shuttle if available",time:"18 min",steps:["Check the accessible entrance and lift status.","Avoid steep or uneven shortcuts.","Confirm shuttle accessibility and arrival point."]},
+    {name:"North campus → lecture building",access:"Level route preferred",transport:"Walk / lift connection",time:"8 min",steps:["Confirm the building entrance is step-free.","Use the lift where needed.","Check temporary closures before travelling."]}
+  ];
+  function updateRoute() {
+    const route = routes[Number($("routeSelect").value)] || routes[0];
+    $("routeName").textContent = route.name; $("routeAccess").textContent = route.access;
+    $("routeTransport").textContent = route.transport; $("routeTime").textContent = route.time;
+    $("routeSteps").replaceChildren(...route.steps.map(step => { const li = document.createElement("li"); li.textContent = step; return li; }));
+    $("routeSteps").hidden = true; $("routeStart").textContent = "Preview route steps";
+  }
+  $("routeSelect").addEventListener("change", updateRoute);
+  $("routeStart").addEventListener("click", () => { const steps = $("routeSteps"); steps.hidden = !steps.hidden; $("routeStart").textContent = steps.hidden ? "Preview route steps" : "Hide route steps"; if (!steps.hidden) toast("Sample route steps shown. Verify directions in real life."); });
+
+  // Comfort slider only reports the user's own selection; it does not diagnose.
+  $("painRange").addEventListener("input", () => {
+    const value = Number($("painRange").value); $("painValue").textContent = `${value} / 10`;
+    $("comfortLabel").textContent = value <= 2 ? "Lower pain rating" : value <= 5 ? "Moderate rating" : "High pain rating";
+    $("comfortLabel").style.color = value >= 6 ? "var(--rose)" : "var(--primary-dark)";
+  });
+  $("supportPlan").addEventListener("click", () => {
+    const choice = $("supportChoice").value, result = $("supportResult");
+    const advice = {
+      clinician:"Contact your treating clinician or healthcare service for advice tailored to your injury. Do not use this demo to change an exercise plan.",
+      campus:"Contact campus facilities or student services to verify lift access, accessible entrances and temporary route closures.",
+      team:"Tell your team what tasks are difficult right now and agree on specific adjustments, such as delegating lifting or arranging seated duties."
+    };
+    result.textContent = advice[choice]; result.hidden = false;
+  });
+
+  // Scripted chat responses. No external AI service is connected.
+  function addBubble(text, type) { const bubble = document.createElement("div"); bubble.className = "bubble " + type; bubble.textContent = text; $("chatLog").append(bubble); $("chatLog").scrollTop = $("chatLog").scrollHeight; }
+  function replyTo(message) {
+    const text = message.toLowerCase(); let reply;
+    if (/pain|hurt|swelling|numb|calf|worse|injur/.test(text)) {
+      reply = "I can't assess symptoms or recommend exercises. If symptoms are new, worsening or concerning, pause the activity and contact a qualified healthcare professional. Seek urgent help for severe or sudden symptoms.";
+    } else if (/anxious|nervous|worry|orientation|afraid|confidence/.test(text)) {
+      reply = "That sounds like a lot to manage. Consider choosing one small, low-pressure step and agreeing on a backup plan with someone you trust. You can return to duties gradually in line with your care team's advice.";
+    } else if (/team|help|support|ask|duty|workload|props/.test(text)) {
+      reply = "You could say: “I'm recovering and want to contribute safely. Could we divide the physical tasks and agree which duties I can handle comfortably?”";
+    } else if (/activity|walk|exercise|physio|appropriate/.test(text)) {
+      reply = "Your clinician's plan should guide activity. I can't determine what's safe for your injury. If you're unsure, ask your clinician before increasing distance or intensity.";
+    } else {
+      reply = "Thanks for sharing that. Would it help to break the situation into one manageable next step, or identify a person who could support you? I'm a scripted demo, not a therapist.";
+    }
+    setTimeout(() => addBubble(reply,"bot"), 350);
+  }
+  $("chatForm").addEventListener("submit", e => {
+    e.preventDefault(); const input = $("chatInput"), message = input.value.trim(); if (!message) return;
+    addBubble(message,"user"); input.value = ""; replyTo(message);
+  });
+  document.querySelectorAll("[data-reply]").forEach(button => button.addEventListener("click", () => { const message = button.dataset.reply; addBubble(message,"user"); replyTo(message); }));
+
+  // RRI chart: drawn on canvas with high-DPI scaling, responsive to current values.
+  const dimensions = [
+    {id:"rangeM",label:"Physical mobility",out:"labelM"},
+    {id:"rangeE",label:"Confidence",out:"labelE"},
+    {id:"rangeC",label:"Campus access",out:"labelC"},
+    {id:"rangeS",label:"Social support",out:"labelS"}
+  ];
+  function drawRadar(values) {
+    const canvas = $("radar"), rect = canvas.getBoundingClientRect(), cssWidth = Math.max(280, Math.min(420, rect.width || 420)), cssHeight = cssWidth * .74;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(cssWidth*dpr); canvas.height = Math.round(cssHeight*dpr);
+    canvas.style.width = "100%"; canvas.style.height = "auto";
+    const ctx = canvas.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+    const w = cssWidth, h = cssHeight, cx=w/2, cy=h/2+3, r=Math.min(w*.27,h*.32);
+    ctx.clearRect(0,0,w,h);
+    const angles=[-Math.PI/2,0,Math.PI/2,Math.PI];
+    ctx.strokeStyle="#e2e8f0"; ctx.lineWidth=1;
+    for(let level=1;level<=4;level++){ctx.beginPath();const rr=r*level/4;angles.forEach((a,i)=>{const x=cx+rr*Math.cos(a),y=cy+rr*Math.sin(a);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();ctx.stroke();}
+    angles.forEach((a,i)=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.stroke();});
+    ctx.beginPath();values.forEach((v,i)=>{const rr=r*v/100,x=cx+rr*Math.cos(angles[i]),y=cy+rr*Math.sin(angles[i]);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();
+    ctx.fillStyle="rgba(13,148,136,.20)";ctx.fill();ctx.strokeStyle="#0d9488";ctx.lineWidth=2.5;ctx.stroke();
+    values.forEach((v,i)=>{const rr=r*v/100;ctx.beginPath();ctx.arc(cx+rr*Math.cos(angles[i]),cy+rr*Math.sin(angles[i]),4,0,Math.PI*2);ctx.fillStyle="#0f766e";ctx.fill();});
+    ctx.font="bold 10px system-ui";ctx.fillStyle="#475569";ctx.textAlign="center";
+    ctx.fillText("Physical",cx,Math.max(10,cy-r-14));ctx.fillText("Confidence",Math.min(w-48,cx+r+40),cy+4);
+    ctx.fillText("Social support",cx,Math.min(h-3,cy+r+17));ctx.fillText("Campus access",Math.max(48,cx-r-42),cy+4);
+  }
+  function updateRri() {
+    const values = dimensions.map(d => { const value = Math.max(0,Math.min(100,Number($(d.id).value)||0)); $(d.out).textContent=value+"%"; return value; });
+    const avg=Math.round(values.reduce((a,b)=>a+b,0)/values.length);
+    $("rriScore").textContent=avg+" / 100"; $("heroScore").textContent=avg+" / 100"; $("heroScoreBar").style.width=avg+"%"; $("summaryScore").textContent=avg;
+    let title,desc;
+    if(avg<40){title="Stage 1 · Pause and seek guidance";desc="Focus on comfort, support and advice from your care team. This score does not determine what activity is safe.";}
+    else if(avg<75){title="Stage 2 · Supported planning";desc="Plan manageable activities with appropriate support and follow clinical guidance.";}
+    else{title="Stage 3 · Review next steps with your team";desc="Higher self-reported readiness may help structure a conversation, but it is not medical clearance for full duties.";}
+    $("stageTitle").textContent=title;$("stageDesc").textContent=desc;drawRadar(values);
+  }
+  dimensions.forEach(d => $(d.id).addEventListener("input",updateRri));
+  $("resetRri").addEventListener("click",()=>{[75,65,80,60].forEach((v,i)=>$(dimensions[i].id).value=v);updateRri();toast("Assessment values reset.");});
+
+  function resetDemo() {
+    tasks.splice(0,tasks.length,
+      {title:"Physiotherapy plan",sub:"Follow the plan provided by your clinician",done:true},
+      {title:"Short, comfortable walk",sub:"Only if consistent with clinical guidance",done:false},
+      {title:"Coordinate orientation duties",sub:"Ask a teammate to handle heavy items",done:false});
+    renderTasks(); $("routeSelect").value="0";updateRoute();$("routeSteps").hidden=true;
+    $("painRange").value=2;$("painRange").dispatchEvent(new Event("input"));
+    $("movement").selectedIndex=1;$("chatLog").replaceChildren();addBubble("Hi Celeste. What would be most helpful right now: planning, confidence, or asking someone for support?","bot");
+    $("supportResult").hidden=true; $("supportChoice").value="clinician";
+    [75,65,80,60].forEach((v,i)=>$(dimensions[i].id).value=v);updateRri();
+    document.querySelector('.tab[data-tab="planner"]').click();toast("Demo reset to its starting state.");
+  }
+  $("resetAll").addEventListener("click",resetDemo);
+  window.addEventListener("resize",()=>{clearTimeout(window.__rrResize);window.__rrResize=setTimeout(updateRri,100);});
+  renderTasks();updateRoute();updateRri();
+})();
+
+  // Progressive Web App support (requires HTTPS; GitHub Pages provides HTTPS).
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/Recover-Ready/sw.js", { scope: "/Recover-Ready/" })
+        .catch(error => console.warn("RecoverReady offline support could not be registered:", error));
+    });
+  }
+</script>
+</body>
+</html>
